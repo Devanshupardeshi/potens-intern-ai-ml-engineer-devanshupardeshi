@@ -1,0 +1,50 @@
+-- =============================================================================
+-- 003_pipeline_status_failed.sql
+-- Phase 1 — Triage Agent: pipeline_status documentation
+--
+-- NO DDL IS REQUIRED.
+--
+-- Context
+-- -------
+-- The pipeline_status column on public.complaints is plain text (not an enum).
+-- The application already writes the following values:
+--
+--   queued                   → complaint inserted, pipeline not yet started
+--   validating               → ValidatorAgent running
+--   categorizing             → (transitional, used in older code paths)
+--   categorizing_and_sentiment → steps 2+3 running in parallel (undocumented
+--                               in lib/types.ts — see note below)
+--   analyzing_sentiment      → SentimentAgent running
+--   prioritizing             → PriorityAgent running
+--   generating_response      → ResponseAgent running
+--   completed                → all 5 agents finished successfully
+--   failed                   → pipeline threw an uncaught error; pipeline_error
+--                              column holds the message
+--
+-- Triage additions (written by TriageAgent — Phase 2)
+-- ---------------------------------------------------
+-- The following new pipeline_status values will be written by the triage agent
+-- introduced in Phase 2.  No migration is needed to support them because the
+-- column is text; they are documented here for traceability:
+--
+--   triaging                 → TriageAgent is actively running (before the
+--                              main pipeline begins)
+--
+-- Note on "categorizing_and_sentiment"
+-- -------------------------------------
+-- This value is written by lib/agents/pipeline.ts (line ~296) during the
+-- parallel categorize+sentiment step but is NOT listed in the PipelineStatus
+-- union type in lib/types.ts.  It is therefore invisible to the TypeScript
+-- compiler and to the track-view.tsx step-index map.  Phase 2 code should
+-- either:
+--   a) Add it to the PipelineStatus union, or
+--   b) Replace it with the separate "categorizing" and "analyzing_sentiment"
+--      values already present in the type.
+-- No database change is required either way.
+--
+-- Why this file exists
+-- --------------------
+-- Supabase migration files are applied in numeric order.  Keeping a file for
+-- every migration slot (001, 002, 003 …) makes the history continuous and
+-- auditable even when a slot requires no DDL.
+-- =============================================================================
