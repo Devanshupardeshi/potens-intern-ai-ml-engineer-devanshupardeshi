@@ -1,0 +1,8 @@
+{
+  "text": "I was charged twice this month for my Premium subscription. My credit card statement shows two identical charges of $29.99 on May 15th and May 17th. I only have one account and I have not made any changes to my subscription. Please refund the duplicate charge immediately.",
+  "metadata": {
+    "customer_email": "alice.martin@example.com",
+    "product": "Premium Subscription",
+    "channel": "web"
+  }
+}

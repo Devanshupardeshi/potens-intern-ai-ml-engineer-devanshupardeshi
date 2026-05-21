@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "safety_or_legal",
+    "priority": "P0",
+    "next_tool": "escalate_to_human",
+    "reasoning": "The customer explicitly mentions filing a chargeback, contacting an attorney, and reporting to the FTC and BBB. These are direct legal threats that require immediate human review. The complaint involves alleged fraud and a documented dispute history that has not been resolved over three weeks. Any attempt to auto-respond to a complaint of this nature without legal team involvement would be inappropriate and potentially harmful to the company. Immediate escalation is mandatory.",
+    "why": "Active legal threats and unresolved fraud dispute require immediate human and legal team review.",
+    "confidence": 0.97
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 2,
+  "duration_ms": 1180
+}

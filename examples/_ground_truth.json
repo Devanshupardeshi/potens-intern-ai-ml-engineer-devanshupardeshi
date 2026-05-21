@@ -1,0 +1,62 @@
+{
+  "01_billing_double_charge": {
+    "category": "billing",
+    "priority": "P1",
+    "next_tool": "draft_acknowledgment"
+  },
+  "02_legal_threat": {
+    "category": "safety_or_legal",
+    "priority": "P0",
+    "next_tool": "escalate_to_human"
+  },
+  "03_repeat_customer": {
+    "category": "product_defect",
+    "priority": "P1",
+    "next_tool": "lookup_customer_history"
+  },
+  "04_known_pattern": {
+    "category": "shipping",
+    "priority": "P2",
+    "next_tool": "search_similar_past_complaints"
+  },
+  "05_vague_low_confidence": {
+    "category": "product_defect",
+    "priority": "P2",
+    "next_tool": "escalate_to_human"
+  },
+  "06_spam": {
+    "category": "product_defect",
+    "priority": "P2",
+    "next_tool": "escalate_to_human"
+  },
+  "07_account_locked_urgent": {
+    "category": "account_access",
+    "priority": "P0",
+    "next_tool": "escalate_to_human"
+  },
+  "08_minor_typo": {
+    "category": "product_defect",
+    "priority": "P2",
+    "next_tool": "draft_acknowledgment"
+  },
+  "09_multi_issue": {
+    "category": "billing",
+    "priority": "P1",
+    "next_tool": "lookup_customer_history"
+  },
+  "10_sarcasm": {
+    "category": "shipping",
+    "priority": "P2",
+    "next_tool": "draft_acknowledgment"
+  },
+  "11_already_resolved": {
+    "category": "billing",
+    "priority": "P2",
+    "next_tool": "none"
+  },
+  "12_safety_serious": {
+    "category": "safety_or_legal",
+    "priority": "P0",
+    "next_tool": "escalate_to_human"
+  }
+}

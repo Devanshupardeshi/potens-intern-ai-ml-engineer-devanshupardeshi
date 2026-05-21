@@ -1,0 +1,39 @@
+[
+  {
+    "kind": "thought",
+    "text": "A product fire with property damage, legal counsel already retained, and a recall demand. This is a P0 safety/legal incident — the most severe category. I must escalate to a human immediately. No automated response should be sent. The legal and safety teams must handle this directly.",
+    "timestamp": "2026-05-23T08:10:00.080Z"
+  },
+  {
+    "kind": "tool_call",
+    "tool": "escalate_to_human",
+    "args": {
+      "reason": "CRITICAL SAFETY INCIDENT: ProHeat 3000 caught fire during normal operation causing property damage. Customer has photographic and video evidence, is consulting a product liability attorney, and demands a recall. Legal team and product safety team must respond — no automated reply permitted."
+    },
+    "timestamp": "2026-05-23T08:10:00.210Z"
+  },
+  {
+    "kind": "tool_result",
+    "tool": "escalate_to_human",
+    "result": {
+      "ok": true,
+      "ticket_id": "dry-run",
+      "queued_position": 0,
+      "reason": "CRITICAL SAFETY INCIDENT: ProHeat 3000 caught fire during normal operation causing property damage. Customer has photographic and video evidence, is consulting a product liability attorney, and demands a recall. Legal team and product safety team must respond — no automated reply permitted."
+    },
+    "ok": true,
+    "timestamp": "2026-05-23T08:10:00.710Z"
+  },
+  {
+    "kind": "final",
+    "decision": {
+      "category": "safety_or_legal",
+      "priority": "P0",
+      "next_tool": "escalate_to_human",
+      "reasoning": "The customer reports a product fire — their ProHeat 3000 space heater caught fire during normal operation and caused property damage. They have photographic and video evidence, are consulting a product liability attorney, and are calling for a product recall. This is a critical safety incident involving physical harm risk, property damage, and active legal engagement. This complaint must be immediately routed to the legal and safety teams. No automated response is appropriate — only a qualified human with legal clearance should respond.",
+      "why": "Product fire with property damage, legal counsel retained, and recall demanded — P0 safety incident requiring immediate legal team response.",
+      "confidence": 0.99
+    },
+    "timestamp": "2026-05-23T08:10:01.100Z"
+  }
+]

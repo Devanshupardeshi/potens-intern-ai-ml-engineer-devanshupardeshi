@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "product_defect",
+    "priority": "P2",
+    "next_tool": "escalate_to_human",
+    "reasoning": "The complaint text is extremely vague — the customer expresses frustration but provides no actionable details about what product, feature, or interaction has failed. There is no customer email to look up history. Without any specifics it is impossible to determine the correct category with high confidence or draft a meaningful response. Confidence falls below the 0.7 threshold, which mandates escalation to a human reviewer who can reach out to gather more context.",
+    "why": "No actionable details provided; confidence below threshold requires human follow-up.",
+    "confidence": 0.38
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 2,
+  "duration_ms": 980
+}

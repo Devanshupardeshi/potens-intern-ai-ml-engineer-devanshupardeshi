@@ -1,0 +1,75 @@
+[
+  {
+    "kind": "thought",
+    "text": "This complaint has two distinct issues: wrong item shipped AND a billing overcharge. Both need to be addressed. I will check the customer's history first to understand if this is a repeat issue, then search for similar wrong-shipment+billing cases.",
+    "timestamp": "2026-05-23T08:07:00.100Z"
+  },
+  {
+    "kind": "tool_call",
+    "tool": "lookup_customer_history",
+    "args": { "customer_email": "james.okafor@example.com" },
+    "timestamp": "2026-05-23T08:07:00.290Z"
+  },
+  {
+    "kind": "tool_result",
+    "tool": "lookup_customer_history",
+    "result": {
+      "ok": true,
+      "prior_count": 1,
+      "last_status": "resolved",
+      "last_priority": "high",
+      "repeat_categories": [],
+      "most_recent_subject": "Wrong model delivered last quarter"
+    },
+    "ok": true,
+    "timestamp": "2026-05-23T08:07:00.810Z"
+  },
+  {
+    "kind": "thought",
+    "text": "History shows a prior wrong-delivery complaint that was resolved at 'high' priority. This is the second time this customer received the wrong model — that is a pattern. Let me search for similar wrong shipment + billing error cases to see how they were resolved.",
+    "timestamp": "2026-05-23T08:07:01.000Z"
+  },
+  {
+    "kind": "tool_call",
+    "tool": "search_similar_past_complaints",
+    "args": { "query": "wrong item shipped overcharged billing error product model", "top_k": 3 },
+    "timestamp": "2026-05-23T08:07:01.200Z"
+  },
+  {
+    "kind": "tool_result",
+    "tool": "search_similar_past_complaints",
+    "result": {
+      "ok": true,
+      "matches": [
+        {
+          "id": "cpl-010",
+          "subject": "Received wrong product and charged wrong price",
+          "category": "billing",
+          "priority": "high",
+          "status": "resolved",
+          "rank": 1.0,
+          "resolution_notes": "Issued partial refund for price difference and arranged express replacement shipment."
+        }
+      ]
+    },
+    "ok": true,
+    "timestamp": "2026-05-23T08:07:01.820Z"
+  },
+  {
+    "kind": "thought",
+    "text": "Past case confirms the resolution path: partial refund + express replacement. This customer has had a prior wrong-delivery too. Billing takes precedence given the overcharge. P1 is warranted due to financial impact and repeat pattern. The human operator needs the full history to process the refund and escalate the fulfillment error.",
+    "timestamp": "2026-05-23T08:07:02.100Z"
+  },
+  {
+    "kind": "final",
+    "decision": {
+      "category": "billing",
+      "priority": "P1",
+      "next_tool": "lookup_customer_history",
+      "reasoning": "The customer is reporting two distinct issues simultaneously — a wrong item shipped (shipping/product defect) and an overcharge for the incorrect item (billing). The billing aspect takes priority since there is a direct financial discrepancy: the customer paid Pro 500 price of $149.99 but received a Basic 200. Additionally they need overnight reshipping which suggests time pressure. Customer history and similar past complaints were consulted to calibrate priority and understand the resolution path. The operator needs the full context before responding.",
+      "why": "Dual issue with direct overcharge and wrong product shipped — P1 billing takes precedence, full history review needed.",
+      "confidence": 0.88
+    },
+    "timestamp": "2026-05-23T08:07:03.240Z"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "product_defect",
+    "priority": "P2",
+    "next_tool": "escalate_to_human",
+    "reasoning": "The submitted text is gibberish and appears to be a spam or bot submission containing random keyboard characters and a promotional link. It does not represent a genuine customer complaint. Confidence in any classification is extremely low. Per the system rules, low-confidence submissions must be escalated so a human can confirm whether this should be marked as spam and discarded, or if there is a real customer behind it who needs assistance.",
+    "why": "Submission appears to be spam; confidence too low to process automatically.",
+    "confidence": 0.12
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 2,
+  "duration_ms": 820
+}

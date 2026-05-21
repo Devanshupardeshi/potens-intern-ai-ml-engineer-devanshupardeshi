@@ -1,0 +1,8 @@
+{
+  "text": "My account has been locked and I cannot log in at all. I have a critical business presentation tomorrow morning at 9 AM that requires access to all my saved reports and dashboards stored in your platform. I have tried resetting my password four times but keep getting an error that says my account is under review. I need this resolved tonight or my contract renewal meeting will be ruined.",
+  "metadata": {
+    "customer_email": "david.osei@example.com",
+    "product": "Business Dashboard",
+    "channel": "web"
+  }
+}

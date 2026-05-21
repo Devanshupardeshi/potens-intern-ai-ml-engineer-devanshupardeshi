@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "account_access",
+    "priority": "P0",
+    "next_tool": "escalate_to_human",
+    "reasoning": "The customer cannot access their account and has a time-critical business event in under 12 hours. The explicit mention of a contract renewal meeting and stored business-critical documents creates severe business impact from account loss. Four failed password resets suggest the account may be locked or suspended at the system level rather than a simple credential issue, which requires manual admin intervention. The combination of time pressure and business-critical data access meets P0 criteria for immediate human response.",
+    "why": "Account locked with a business-critical deadline in under 12 hours — requires immediate human admin intervention.",
+    "confidence": 0.95
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 2,
+  "duration_ms": 1050
+}

@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "product_defect",
+    "priority": "P1",
+    "next_tool": "lookup_customer_history",
+    "reasoning": "The customer reports this is their third contact about the identical SmartHome Hub WiFi disconnection issue. Repeat complaints about the same unresolved product defect indicate a systemic failure in both the product and the support process. The customer has followed all recommended troubleshooting steps from prior tickets with no resolution. This warrants elevated P1 priority due to the churn risk from repeated failed resolutions. The human operator should review the full history before responding.",
+    "why": "Third contact about the same unresolved product defect elevates this to P1 churn-risk territory.",
+    "confidence": 0.89
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 3,
+  "duration_ms": 1960
+}

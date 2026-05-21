@@ -1,0 +1,39 @@
+[
+  {
+    "kind": "thought",
+    "text": "This is clearly spam or a bot submission — random keyboard characters mixed with promotional language and an external link. There is no legitimate complaint here. Confidence is extremely low (0.12). I must escalate so a human can mark it appropriately and prevent any automated response from being sent.",
+    "timestamp": "2026-05-23T08:04:00.060Z"
+  },
+  {
+    "kind": "tool_call",
+    "tool": "escalate_to_human",
+    "args": {
+      "reason": "Submission is gibberish / spam — random characters and a promotional link. No legitimate complaint is present. Human should review and discard or block the submission."
+    },
+    "timestamp": "2026-05-23T08:04:00.170Z"
+  },
+  {
+    "kind": "tool_result",
+    "tool": "escalate_to_human",
+    "result": {
+      "ok": true,
+      "ticket_id": "dry-run",
+      "queued_position": 0,
+      "reason": "Submission is gibberish / spam — random characters and a promotional link. No legitimate complaint is present. Human should review and discard or block the submission."
+    },
+    "ok": true,
+    "timestamp": "2026-05-23T08:04:00.520Z"
+  },
+  {
+    "kind": "final",
+    "decision": {
+      "category": "product_defect",
+      "priority": "P2",
+      "next_tool": "escalate_to_human",
+      "reasoning": "The submitted text is gibberish and appears to be a spam or bot submission containing random keyboard characters and a promotional link. It does not represent a genuine customer complaint. Confidence in any classification is extremely low. Per the system rules, low-confidence submissions must be escalated so a human can confirm whether this should be marked as spam and discarded, or if there is a real customer behind it who needs assistance.",
+      "why": "Submission appears to be spam; confidence too low to process automatically.",
+      "confidence": 0.12
+    },
+    "timestamp": "2026-05-23T08:04:00.820Z"
+  }
+]

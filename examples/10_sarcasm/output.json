@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "shipping",
+    "priority": "P2",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": "Despite heavily sarcastic phrasing, the customer's underlying complaint is clear: a package ordered on May 10th has not arrived by May 23rd, 13 days later, with no tracking updates. The sarcasm signals frustration but does not change the nature of the issue — this is a standard shipping delay. No financial harm, no safety concern, and no legal threat. Confidence is high because the intent is unambiguous once the tone is parsed. A polished acknowledgment with a commitment to investigate the shipment status is the right response.",
+    "why": "Sarcastic tone masks a clear standard shipping delay — P2 with a direct acknowledgment.",
+    "confidence": 0.91
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 3,
+  "duration_ms": 2010
+}

@@ -1,0 +1,8 @@
+{
+  "text": "I have two separate problems I need help with. First, the wrong item was shipped — I ordered the Pro 500 model but received the Basic 200. Second, I was charged the Pro 500 price of $149.99 even though the wrong, cheaper item was sent. I need the correct item shipped overnight and a partial refund for the price difference while I wait. Both issues are urgent as this is blocking my team's work.",
+  "metadata": {
+    "customer_email": "james.okafor@example.com",
+    "product": "Pro 500",
+    "channel": "email"
+  }
+}

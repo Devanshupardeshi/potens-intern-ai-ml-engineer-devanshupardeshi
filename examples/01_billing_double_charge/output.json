@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "billing",
+    "priority": "P1",
+    "next_tool": "draft_acknowledgment",
+    "reasoning": "The customer reports being charged twice on the same subscription within two days. This is a clear billing error — two identical $29.99 charges for the same account. Prior complaint history shows the customer is known to us and the duplicate was confirmed. Financial impact is direct and the customer expects an immediate refund. No safety or legal threat is present, and confidence is high. Drafting an acknowledgment is the appropriate next step to reassure the customer while the refund is processed.",
+    "why": "Confirmed duplicate subscription charge warrants P1 priority and a drafted acknowledgment to the customer.",
+    "confidence": 0.92
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 4,
+  "duration_ms": 2340
+}

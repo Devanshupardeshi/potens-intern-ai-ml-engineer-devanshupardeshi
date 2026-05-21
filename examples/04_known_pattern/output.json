@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "shipping",
+    "priority": "P2",
+    "next_tool": "search_similar_past_complaints",
+    "reasoning": "The customer references social media posts from other customers experiencing the same delivery delay pattern — orders from the past two weeks arriving 5–7 days late. This suggests a systemic shipping partner issue rather than an isolated case. Searching for similar past complaints will help the human operator understand if there is a known root cause and a prepared resolution template. The delay itself is a P2 since there is no financial loss or safety concern, but understanding the pattern is important for a quality response.",
+    "why": "Potential systemic shipping delay warrants searching for similar past complaints before responding.",
+    "confidence": 0.84
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 3,
+  "duration_ms": 1720
+}

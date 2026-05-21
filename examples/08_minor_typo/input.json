@@ -1,0 +1,8 @@
+{
+  "text": "Hi there, just a small note — there is a typo on your dashboard page. In the Reports section, the column header says 'Montly Summary' instead of 'Monthly Summary'. It is not urgent at all, just wanted to flag it so you can fix it whenever you get a chance. Love the product otherwise!",
+  "metadata": {
+    "customer_email": "nina.vogt@example.com",
+    "product": "Analytics Dashboard",
+    "channel": "web"
+  }
+}

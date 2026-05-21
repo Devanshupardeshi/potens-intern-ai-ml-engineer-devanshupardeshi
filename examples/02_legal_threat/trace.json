@@ -1,0 +1,39 @@
+[
+  {
+    "kind": "thought",
+    "text": "The customer explicitly mentions attorneys, FTC, BBB, and chargeback. This is a clear legal threat with alleged fraud. I must escalate to a human reviewer immediately — no auto-response is appropriate here.",
+    "timestamp": "2026-05-23T08:00:10.080Z"
+  },
+  {
+    "kind": "tool_call",
+    "tool": "escalate_to_human",
+    "args": {
+      "reason": "Customer has issued explicit legal threats including attorney consultation, FTC complaint, and BBB report. Alleged fraud has been unresolved for three weeks. Legal team review required before any response is sent."
+    },
+    "timestamp": "2026-05-23T08:00:10.220Z"
+  },
+  {
+    "kind": "tool_result",
+    "tool": "escalate_to_human",
+    "result": {
+      "ok": true,
+      "ticket_id": "dry-run",
+      "queued_position": 0,
+      "reason": "Customer has issued explicit legal threats including attorney consultation, FTC complaint, and BBB report. Alleged fraud has been unresolved for three weeks. Legal team review required before any response is sent."
+    },
+    "ok": true,
+    "timestamp": "2026-05-23T08:00:10.680Z"
+  },
+  {
+    "kind": "final",
+    "decision": {
+      "category": "safety_or_legal",
+      "priority": "P0",
+      "next_tool": "escalate_to_human",
+      "reasoning": "The customer explicitly mentions filing a chargeback, contacting an attorney, and reporting to the FTC and BBB. These are direct legal threats that require immediate human review. The complaint involves alleged fraud and a documented dispute history that has not been resolved over three weeks. Any attempt to auto-respond to a complaint of this nature without legal team involvement would be inappropriate and potentially harmful to the company. Immediate escalation is mandatory.",
+      "why": "Active legal threats and unresolved fraud dispute require immediate human and legal team review.",
+      "confidence": 0.97
+    },
+    "timestamp": "2026-05-23T08:00:11.180Z"
+  }
+]

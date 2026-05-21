@@ -1,0 +1,8 @@
+{
+  "text": "I have been seeing posts on Reddit and Twitter from other customers saying they are experiencing the same shipping delay I have — orders placed in the last two weeks are arriving 5 to 7 days late. My order #ORD-99211 was supposed to arrive on May 18th and it is still not here. Are you aware of this widespread issue? I would like to know if there is an ETA.",
+  "metadata": {
+    "customer_email": "sam.kowalski@example.com",
+    "product": "Standard Delivery",
+    "channel": "web"
+  }
+}

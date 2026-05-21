@@ -1,0 +1,14 @@
+{
+  "complaint_id": "dry-run",
+  "decision": {
+    "category": "billing",
+    "priority": "P2",
+    "next_tool": "none",
+    "reasoning": "The customer is writing to confirm that their billing issue has already been resolved — the duplicate charge was reversed on their statement today. They explicitly state they need no further assistance and request the ticket be closed. No action is required from the support team beyond closing the ticket and recording the positive resolution. Sending an additional response is unnecessary and could create confusion.",
+    "why": "Issue confirmed resolved by customer — ticket should be closed with no further action.",
+    "confidence": 0.99
+  },
+  "model": "google/gemini-2.0-flash",
+  "steps_used": 1,
+  "duration_ms": 620
+}
