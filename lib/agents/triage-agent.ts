@@ -142,7 +142,9 @@ export async function runTriageAgent(args: {
     "next_tool must be one of: lookup_customer_history, search_similar_past_complaints, draft_acknowledgment, escalate_to_human, none — " +
     "it represents what a human operator should do next AFTER you finish. " +
     "Always include `reasoning` and `why`. " +
-    "If your confidence is below 0.7 OR the case involves safety/legal/fraud, you MUST call escalate_to_human before finishing."
+    "If your confidence is below 0.7 OR the case involves safety/legal/fraud, you MUST call escalate_to_human before finishing.\n\n" +
+    "CRITICAL: When you are ready to make your final decision, you MUST output EXACTLY and ONLY a raw JSON object with no markdown formatting. The JSON object must match this schema:\n" +
+    `{ "category": "${TRIAGE_CATEGORIES.join("|")}", "priority": "P0"|"P1"|"P2", "next_tool": "${TRIAGE_TOOL_NAMES.join("|")}", "reasoning": "...", "why": "...", "confidence": 0.0 to 1.0 }`
 
   // ---------------------------------------------------------------------------
   // User prompt
@@ -287,7 +289,6 @@ export async function runTriageAgent(args: {
     prompt: userPrompt,
     tools,
     stopWhen: stepCountIs(6),
-    experimental_output: Output.object({ schema: TriageOutputSchema }),
   })
 
   // ---------------------------------------------------------------------------
@@ -300,11 +301,16 @@ export async function runTriageAgent(args: {
     }
   }
 
-  const decision = result.experimental_output as TriageDecision | undefined
-  if (!decision) {
+  let decision: TriageDecision | undefined
+  try {
+    // Attempt to extract JSON from the text, handling possible markdown code blocks
+    const cleanedText = result.text.trim().replace(/^```(?:json)?/, "").replace(/```$/, "").trim()
+    const parsed = JSON.parse(cleanedText)
+    decision = TriageOutputSchema.parse(parsed) as TriageDecision
+  } catch (err) {
     throw new Error(
-      "Triage agent: model returned no structured output. " +
-      "This usually means the model failed to conform to the output schema.",
+      "Triage agent: model returned no valid structured output. " +
+      "This usually means the model failed to conform to the output schema. Text was: " + result.text
     )
   }
   trace.push({ kind: "final", decision, timestamp: ts() })
